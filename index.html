@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multy</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app" class="app-container">
+      <!-- Header Section -->
+      <header class="app-header">
+        <div class="logo-wrapper">
+          <img src="lightning-icon.svg" alt="Multi Logo" class="app-logo" />
+        </div>
+        <div class="brand-info">
+          <h1 class="brand-title">Multy</h1>
+         <b><p class="brand-tagline">Learn a little every day</p></b>
+        </div>
+      </header>
+
+      <!-- Stats Badges Section -->
+      <div class="stats-container">
+        <div class="stat-badge streak-badge">
+          <span class="icon">🔥</span>
+          <span class="stat-text">7 day streak</span>
+        </div>
+        <div class="stat-badge gems-badge">
+          <span class="icon">💎</span>
+          <span class="stat-text">155 Gems</span>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs Section -->
+      <nav id="navigation-bar" class="nav-scroll-container">
+        <div class="nav-tabs-wrapper">
+          <button class="nav-tab active" data-target="daily-checkin-section">
+            <span class="tab-icon">❤️</span> Daily Check-In
+          </button>
+          <button class="nav-tab" data-target="explain-rest-section">
+            <span class="tab-icon">🧠</span> Explain & Rest
+          </button>
+          <button class="nav-tab" data-target="catchup-section">
+            <span class="tab-icon">🏅</span> 15-Q Catch-Up
+          </button>
+          <button class="nav-tab" data-target="ai-buddy-section">
+            <span class="tab-icon">🤖</span> AI Buddy
+          </button>
+          <button class="nav-tab" data-target="streak-vault-section">
+            <span class="tab-icon">🔥</span> Streak & Vault
+          </button>
+        </div>
+        <!-- Scroll bar indicator -->
+        <div class="scroll-indicator-track">
+          <div class="scroll-thumb"></div>
+        </div>
+      </nav>
+
+      <!-- ================= MAIN CONTENT SECTIONS ================= -->
+
+      <!-- Section 1: Daily Check-In -->
+      <section id="daily-checkin-section" class="tab-content">
+        <div class="step-header">
+          <span class="step-badge">Step 1</span>
+          <h2 class="section-heading">Karibu! Start with a quick check-in</h2>
+          <p class="section-subtitle">
+            Set your mood and goal to light today's fire.
+          </p>
+        </div>
+
+        <div class="mood-section">
+          <label class="input-label">How are you feeling today?</label>
+
+          <div class="mood-grid">
+            <button class="mood-btn selected">
+              Energetic <span class="emoji">🔥</span>
+            </button>
+            <button class="mood-btn">
+              Slightly Tired <span class="emoji">🥱</span>
+            </button>
+            <button class="mood-btn">
+              Sad / Low <span class="emoji">💙</span>
+            </button>
+            <button class="mood-btn">
+              Motivated <span class="emoji">🚀</span>
+            </button>
+          </div>
+
+          <p id="mood-feedback" class="feedback-text">
+            Great energy. Tackle the hardest topic first.
+          </p>
+        </div>
+
+        <div class="learning-section">
+          <label for="learning-goal-input" class="input-label">
+            What do you feel like learning today?
+          </label>
+          <input
+            type="text"
+            id="learning-goal-input"
+            class="learning-input"
+            placeholder="e.g. JavaScript functions, data structures, UI mockups"
+          />
+        </div>
+      </section>
+
+      <!-- Section 2: Explain & Rest -->
+      <section
+        id="explain-rest-section"
+        class="tab-content"
+        style="display: none"
+      >
+        <div class="cooldown-card">
+          <div class="cooldown-info">
+            <h3 class="cooldown-title">5-minute brain cooldown</h3>
+            <p class="cooldown-subtitle">
+              Step away from the screen, then explain what you learned.
+            </p>
+          </div>
+          <div class="timer-controls">
+            <div class="timer-display">
+              <span class="timer-icon">🕒</span>
+              <span id="countdown-timer">5:00</span>
+            </div>
+            <button id="start-timer-btn" class="btn-start">
+              <span class="play-icon">▶</span> Start
+            </button>
+            <button
+              id="reset-timer-btn"
+              class="btn-reset"
+              aria-label="Reset Timer"
+            >
+              <span class="reset-icon">↺</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="explanation-section">
+          <h3 class="section-heading">Explain it in your own words</h3>
+          <p class="section-instruction">
+            What did you understand from today's session? Teach like you're
+            talking to a friend.
+          </p>
+
+          <textarea
+            id="explanation-textarea"
+            class="text-input"
+            placeholder="Write how you would explain this concept..."
+            rows="5"
+          ></textarea>
+
+          <button id="check-explanation-btn" class="btn-primary-action">
+            Check my explanation (+30 Gems)
+          </button>
+        </div>
+
+        <div class="call-it-day-wrapper">
+          <p class="footer-prompt">Finished studying for today?</p>
+          <button id="call-it-day-btn" class="btn-success">
+            <span class="icon">✨</span> Call it a day
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 3: 15-Q Catch-Up -->
+      <section id="catchup-section" class="tab-content" style="display: none">
+        <div class="quiz-status-bar">
+          <div class="question-counter-badge">Question 1 of 15</div>
+          <div class="score-badge">
+            Score: <span id="current-score">0</span>
+          </div>
+        </div>
+
+        <h2 class="section-heading">15-question catch-up</h2>
+        <div class="divider-line"></div>
+
+        <div class="question-card">
+          <p class="question-text">
+            What is the main purpose of an MVP in product development?
+          </p>
+
+          <div class="options-container">
+            <button class="option-btn">Build the finished final product</button>
+            <button class="option-btn selected">
+              Validate assumptions quickly with real users
+            </button>
+            <button class="option-btn">Write complex databases</button>
+          </div>
+        </div>
+
+        <button id="check-answer-btn" class="btn-primary-action">
+          Check answer
+        </button>
+      </section>
+
+      <!-- Section 4: Streak & Vault -->
+      <section
+        id="streak-vault-section"
+        class="tab-content"
+        style="display: none"
+      >
+        <div class="vault-header-row">
+          <span class="vault-badge">Streak vault</span>
+          <div class="vault-gems-display">
+            <span class="gem-icon">💎</span>
+            <span id="vault-gems-count">155 Gems</span>
+          </div>
+        </div>
+
+        <h2 class="section-heading">Your daily fire</h2>
+
+        <div class="streak-status-card">
+          <div class="fire-icon-box">🔥</div>
+          <div class="streak-text-info">
+            <h4 class="status-title">Fire is lit for today 🔥</h4>
+            <p class="status-desc">7 days strong. Keep it going tomorrow.</p>
+          </div>
+        </div>
+
+        <div class="demo-controls-wrapper">
+          <p class="demo-label">Hackathon demo controls</p>
+          <div class="demo-buttons-group">
+            <button id="simulate-missed-day-btn" class="btn-demo">
+              Simulate a missed day
+            </button>
+            <button id="add-test-gems-btn" class="btn-demo">
+              Add 50 test Gems 💎
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src=script.js defer></script>
+</html>
